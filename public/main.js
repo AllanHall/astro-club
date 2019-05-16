@@ -3,11 +3,17 @@ const main = () => {
     .then(resp => {
       return resp.json()
     })
-    .then(api => {
-      console.log(api.url)
+    .then(image => {
       document.querySelector('.explore').style.backgroundImage = `url(${
-        api.url
+        image.url
       })`
+    })
+  fetch('https://sdg-astro-api.herokuapp.com/api/SpaceX/launches/upcoming')
+    .then(response => {
+      return response.json()
+    })
+    .then(data => {
+      console.log(data)
     })
 }
 document.addEventListener('DOMContentLoaded', main)
