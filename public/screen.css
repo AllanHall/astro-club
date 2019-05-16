@@ -40,8 +40,9 @@ body {
   color: white;
   width: 100vw;
   background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   height: 50vh;
-  background-image: URL('https://apod.nasa.gov/apod/image/1905/TotnBefore_Dai_1080.jpg');
 }
 
 .explore > h1 {
