@@ -10,3 +10,90 @@ body {
   margin: 0;
   min-height: 100%;
 }
+
+/* header */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(109, 19, 212);
+  color: white;
+  height: 8vh;
+  width: 100vw;
+}
+
+.header > h2 {
+  padding-left: 1rem;
+}
+
+.header > div {
+  display: flex;
+  justify-content: space-between;
+  width: 10rem;
+  padding-right: 2rem;
+}
+
+/* Explore */
+
+.explore {
+  text-align: center;
+  color: white;
+  width: 100vw;
+  background-repeat: no-repeat;
+  height: 50vh;
+  background-image: URL('https://apod.nasa.gov/apod/image/1905/TotnBefore_Dai_1080.jpg');
+}
+
+.explore > h1 {
+  font-size: 36px;
+  margin: 0;
+  padding-top: 10rem;
+}
+
+/* Copyright */
+.copyright {
+  height: 2vh;
+  text-align: center;
+  font-size: 13px;
+  margin: 0;
+}
+
+/* Launches */
+.launches {
+  background-color: rgb(243, 182, 29);
+}
+
+.launches > h1 {
+  margin: 0;
+  height: 6vh;
+  padding-top: 1rem;
+  padding-left: 1rem;
+}
+
+/* API */
+.api {
+  height: 40vh;
+}
+
+/* Mission */
+.mission {
+  text-align: center;
+  background-color: rgb(215, 200, 243);
+  height: 25vh;
+  font-size: 19px;
+}
+
+.mission > h1 {
+  margin: 0;
+  font-size: 28px;
+  padding-top: 1rem;
+}
+
+/* Footer */
+.footer {
+  background-color: rgb(109, 19, 212);
+  text-align: center;
+  color: lightgray;
+  height: 6vh;
+  padding-top: 2rem;
+}
