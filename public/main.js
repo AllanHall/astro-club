@@ -1,6 +1,7 @@
 let allMissions = []
+let i = 0
 
-const main = () => {
+const render = () => {
   fetch('https://sdg-astro-api.herokuapp.com/api/Nasa/apod')
     .then(resp => {
       return resp.json()
@@ -19,40 +20,44 @@ const main = () => {
     .then(data2 => {
       let allMissions = data2
       document.querySelector('.mission-name').textContent =
-        allMissions[0].mission_name
+        allMissions[i].mission_name
       document.querySelector('.mission-details').textContent =
-        allMissions[0].details
+        allMissions[i].details
       document.querySelector('.launch-date').textContent =
-        allMissions[0].launch_date_utc
+        allMissions[i].launch_date_utc
       document.querySelector('.launch-site').textContent =
-        allMissions[0].launch_site.site_name_long
+        allMissions[i].launch_site.site_name_long
     })
 }
 
+const main = () => {
+  render()
+}
+
 const cycleMissionsForward = () => {
-  for (let i = 0; i < allMissions.length; i++) {
-    if (allMissions[i] <= 24) {
-      allMissions[i] = allMissions[i++]
-    } else {
-      allMissions[i] = allMissions[0]
-    }
+  if (i <= 24) {
+    i++
+    render()
+  } else {
+    i = 0
+    render()
   }
 }
 
 const cycleMissionsBackward = () => {
-  for (let i = 0; i < allMissions.length; i++) {
-    if (allMissions[i] > 0) {
-      allMissions[i] = allMissions[i--]
-    } else {
-      allMissions[i] = allMissions[24]
-    }
+  if (i > 0) {
+    i--
+    render()
+  } else {
+    i = 24
+    render()
   }
 }
 
 document
-  .querySelector('#button-left')
-  .addEventListener('click', cycleMissionsBackward)
-document
   .querySelector('#button-right')
   .addEventListener('click', cycleMissionsForward)
+document
+  .querySelector('#button-left')
+  .addEventListener('click', cycleMissionsBackward)
 document.addEventListener('DOMContentLoaded', main)
