@@ -26,12 +26,26 @@ body {
   padding-left: 1rem;
 }
 
-.header > div {
+#contacts {
   display: flex;
-  justify-content: space-between;
-  width: 10rem;
-  padding-right: 2rem;
-  margin-top: 0.5rem;
+  width: 15vw;
+}
+
+#contacts > a {
+  width: 6vw;
+  padding-top: 1.25rem;
+  padding-left: 0.5rem;
+}
+
+#contacts > a:link,
+#contacts > a:visited {
+  color: white;
+}
+
+#contacts > a:hover,
+#contacts > a:active {
+  background-color: rgb(243, 182, 29);
+  color: black;
 }
 
 /* Explore */
@@ -87,9 +101,18 @@ body {
   border-radius: 5px;
 }
 
+.mission-details {
+  padding-top: 1rem;
+}
+#api-data > p {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 button {
   height: 5vh;
   width: 5vw;
+  font-size: 28px;
 }
 
 #button-left {
@@ -130,4 +153,9 @@ button {
   color: lightgray;
   height: 6vh;
   padding-top: 2rem;
+}
+
+.footer > a:link,
+.footer > a:visited {
+  color: lightgray;
 }
