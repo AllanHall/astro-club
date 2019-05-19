@@ -29,4 +29,26 @@ const main = () => {
     })
 }
 
+const cycleMissionsForward = () => {
+  for (let i = 0; i < allmissions.length; i++) {
+    if (allmissions[i] <= 24) {
+      allmissions[i] = allmissions[i++]
+    } else allmissions[i] = allmissions[0]
+  }
+}
+
+const cycleMissionsBackward = () => {
+  for (let i = 0; i < allmissions.length; i++) {
+    if (allmissions[i] > 0) {
+      allmissions[i] = allmissions[i--]
+    } else allmissions[i] = allmissions[24]
+  }
+}
+
+document
+  .querySelector('#button-left')
+  .addEventListener('click', cycleMissionsBackward)
+document
+  .querySelector('#button-right')
+  .addEventListener('click', cycleMissionsForward)
 document.addEventListener('DOMContentLoaded', main)
