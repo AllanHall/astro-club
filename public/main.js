@@ -1,4 +1,4 @@
-let allmissions = []
+let allMissions = []
 
 const main = () => {
   fetch('https://sdg-astro-api.herokuapp.com/api/Nasa/apod')
@@ -17,31 +17,35 @@ const main = () => {
       return response.json()
     })
     .then(data2 => {
-      let allmissions = data2
+      let allMissions = data2
       document.querySelector('.mission-name').textContent =
-        allmissions[0].mission_name
+        allMissions[0].mission_name
       document.querySelector('.mission-details').textContent =
-        allmissions[0].details
+        allMissions[0].details
       document.querySelector('.launch-date').textContent =
-        allmissions[0].launch_date_utc
+        allMissions[0].launch_date_utc
       document.querySelector('.launch-site').textContent =
-        allmissions[0].launch_site.site_name_long
+        allMissions[0].launch_site.site_name_long
     })
 }
 
 const cycleMissionsForward = () => {
-  for (let i = 0; i < allmissions.length; i++) {
-    if (allmissions[i] <= 24) {
-      allmissions[i] = allmissions[i++]
-    } else allmissions[i] = allmissions[0]
+  for (let i = 0; i < allMissions.length; i++) {
+    if (allMissions[i] <= 24) {
+      allMissions[i] = allMissions[i++]
+    } else {
+      allMissions[i] = allMissions[0]
+    }
   }
 }
 
 const cycleMissionsBackward = () => {
-  for (let i = 0; i < allmissions.length; i++) {
-    if (allmissions[i] > 0) {
-      allmissions[i] = allmissions[i--]
-    } else allmissions[i] = allmissions[24]
+  for (let i = 0; i < allMissions.length; i++) {
+    if (allMissions[i] > 0) {
+      allMissions[i] = allMissions[i--]
+    } else {
+      allMissions[i] = allMissions[24]
+    }
   }
 }
 

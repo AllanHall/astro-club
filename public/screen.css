@@ -32,9 +32,8 @@ body {
 }
 
 #contacts > a {
-  width: 6vw;
+  width: 7vw;
   padding-top: 1.25rem;
-  padding-left: 0.5rem;
 }
 
 #contacts > a:link,
@@ -104,9 +103,15 @@ body {
 .mission-details {
   padding-top: 1rem;
 }
+
 #api-data > p {
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+#api-data > hr {
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 button {
@@ -127,9 +132,16 @@ button {
   background-color: rgb(243, 182, 29);
 }
 
-.mission-name {
+.mission-namer {
   text-align: center;
   font-size: 20px;
+}
+
+.mission-name,
+.mission-details,
+.launch-date,
+.launch-site {
+  padding-left: 0.5rem;
 }
 
 /* Mission */

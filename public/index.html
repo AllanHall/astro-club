@@ -6,6 +6,12 @@
     <title>Astro Club</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="stylesheet" href="/screen.css" />
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.5.0/js/all.js"
+      integrity="sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <section class="header">
@@ -29,10 +35,19 @@
     <section class="api">
       <button id="button-left"><strong>&lt;</strong></button>
       <section id="api-data">
-        <h2 class="mission-name"></h2>
-        <p class="mission-details"></p>
-        <p class="launch-date"></p>
-        <p class="launch-site"></p>
+        <h2 class="mission-namer">
+          <i class="fas fa-space-shuttle"></i><span class="mission-name"></span>
+        </h2>
+        <p>
+          <i class="fas fa-info-circle"></i
+          ><span class="mission-details"></span>
+        </p>
+        <hr />
+        <p><i class="fas fa-clock"></i><span class="launch-date"></span></p>
+        <hr />
+        <p>
+          <i class="fas fa-map-marked-alt"></i><span class="launch-site"></span>
+        </p>
       </section>
       <button id="button-right"><strong>&gt;</strong></button>
     </section>
@@ -48,7 +63,7 @@
       </p>
     </section>
     <section class="footer">
-      made with &hearts; at <a href="https://suncoast.io/">SDG</a>
+      made with &#x1F49B; at <a href="https://suncoast.io/">SDG</a>
     </section>
     <script src="/main.js" charset="utf-8"></script>
   </body>
