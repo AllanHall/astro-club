@@ -75,6 +75,38 @@ body {
 /* API */
 .api {
   height: 40vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#api-data {
+  width: 80vw;
+  height: 35vh;
+  background-color: rgb(238, 229, 229);
+  border-radius: 5px;
+}
+
+button {
+  height: 5vh;
+  width: 5vw;
+}
+
+#button-left {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-color: rgb(243, 182, 29);
+}
+
+#button-right {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background-color: rgb(243, 182, 29);
+}
+
+.mission-name {
+  text-align: center;
+  font-size: 20px;
 }
 
 /* Mission */

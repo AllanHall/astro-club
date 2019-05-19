@@ -6,6 +6,8 @@ const main = () => {
       return resp.json()
     })
     .then(data1 => {
+      document.querySelector('.copyright').textContent =
+        data1.copyright + ' | ' + data1.title
       document.querySelector('.explore').style.backgroundImage = `url(${
         data1.url
       })`
