@@ -20,19 +20,19 @@ const render = () => {
     })
     .then(data2 => {
       let allMissions = data2
+      missionControl(allMissions[0].launch_date_local)
       document.querySelector('.mission-name').textContent =
         allMissions[i].mission_name
       document.querySelector('.mission-details').textContent =
         allMissions[i].details
       document.querySelector('.launch-date').textContent =
-        allMissions[i].launch_date_utc
+        allMissions[i].launch_date_local
       document.querySelector('.launch-site').textContent =
         allMissions[i].launch_site.site_name_long
     })
 }
 
 const main = () => {
-  // dateCalculator()
   render()
 }
 
@@ -42,22 +42,35 @@ const fixDescription = () => {
     document.querySelector('.mission-details').textContent = 'No description yet available'
 }
 */
-/*
-const dateCalculator = setInterval(function() {
-  let currentDate = Date.parse(new Date().getTime())
-  let launchDate = Date.parse(allMissions[i].launch_date_utc)
-  let timeToLaunch = launchDate - currentDate
-  let secs = Math.floor((timeToLaunch / 1000))
-  let mins = Math.floor((timeToLaunch / (1000 * 60)))
-  let hours = Math.floor((timeToLaunch / (1000 * 60 * 60)))
-  let days = Math.floor(timeToLaunch / (1000 * 60 * 60 * 24))
-  document.querySelector('.launch-date').textContent =
-    days + ' days, ' + hours + ' hours, ' + mins + ' mins, ' + secs + ' seconds'
-  if (timeToLaunch <= 0) {
-    document.querySelector('launch-date').textContent = 'Launched!'
-  }
-}, 1000)
-*/
+
+const missionControl = apiDate => {
+  const countDownDate = new Date(apiDate).getTime()
+  clearInterval(countDown)
+  countDown = setInterval(function() {
+    let currentDate = new Date().getTime()
+    let timeToLaunch = countDownDate - currentDate
+    let secs = Math.floor((timeToLaunch % (1000 * 60)) / 1000)
+    let mins = Math.floor((timeToLaunch % (1000 * 60 * 60)) / (1000 * 60))
+    let hours = Math.floor(
+      (timeToLaunch % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    )
+    let days = Math.floor(timeToLaunch / (1000 * 60 * 60 * 24))
+    document.querySelector('.launch-date').textContent =
+      days +
+      ' days, ' +
+      hours +
+      ' hours, ' +
+      mins +
+      ' mins, ' +
+      secs +
+      ' seconds'
+    if (timeToLaunch < 0) {
+      clearInterval(countDown)
+      document.querySelector('launch-date').textContent = 'Launched!'
+    }
+  }, 1000)
+}
+
 // Counter Buttons
 const cycleMissionsForward = () => {
   if (i <= 24) {
