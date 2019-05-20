@@ -64,7 +64,7 @@ const missionControl = apiDate => {
       ' mins, ' +
       secs +
       ' seconds'
-    if (timeToLaunch < 0) {
+    if (timeToLaunch <= 0) {
       clearInterval(countDown)
       document.querySelector('launch-date').textContent = 'Launched!'
     }
