@@ -1,6 +1,8 @@
-let allMissions = []
+// Global Variables
 let i = 0
+let countDown = null
 
+// Fetching API Data
 const render = () => {
   fetch('https://sdg-astro-api.herokuapp.com/api/Nasa/apod')
     .then(resp => {
@@ -9,9 +11,8 @@ const render = () => {
     .then(data1 => {
       document.querySelector('.copyright').textContent =
         'copyright: ' + data1.copyright + ' | title: ' + data1.title
-      document.querySelector('.explore').style.backgroundImage = `url(${
-        data1.url
-      })`
+      document.querySelector('.explore').style.backgroundImage =
+        'url(' + data1.url + ')'
     })
   fetch('https://sdg-astro-api.herokuapp.com/api/SpaceX/launches/upcoming')
     .then(response => {
@@ -31,9 +32,33 @@ const render = () => {
 }
 
 const main = () => {
+  // dateCalculator()
   render()
 }
 
+/*
+const fixDescription = () => {
+  if (allMissions[i].details = 'null')
+    document.querySelector('.mission-details').textContent = 'No description yet available'
+}
+*/
+/*
+const dateCalculator = setInterval(function() {
+  let currentDate = Date.parse(new Date().getTime())
+  let launchDate = Date.parse(allMissions[i].launch_date_utc)
+  let timeToLaunch = launchDate - currentDate
+  let secs = Math.floor((timeToLaunch / 1000))
+  let mins = Math.floor((timeToLaunch / (1000 * 60)))
+  let hours = Math.floor((timeToLaunch / (1000 * 60 * 60)))
+  let days = Math.floor(timeToLaunch / (1000 * 60 * 60 * 24))
+  document.querySelector('.launch-date').textContent =
+    days + ' days, ' + hours + ' hours, ' + mins + ' mins, ' + secs + ' seconds'
+  if (timeToLaunch <= 0) {
+    document.querySelector('launch-date').textContent = 'Launched!'
+  }
+}, 1000)
+*/
+// Counter Buttons
 const cycleMissionsForward = () => {
   if (i <= 24) {
     i++
@@ -54,6 +79,7 @@ const cycleMissionsBackward = () => {
   }
 }
 
+// Event Listeners
 document
   .querySelector('#button-right')
   .addEventListener('click', cycleMissionsForward)
